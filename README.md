@@ -23,4 +23,3 @@ Distributor ID:	LinuxMint
 Description:	Linux Mint 19 Tara
 Release:	19
 Codename:	tara
-
