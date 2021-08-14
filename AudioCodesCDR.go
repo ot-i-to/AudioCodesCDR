@@ -1,5 +1,7 @@
 package main
 
+// https://docs.microsoft.com/ru-ru/azure/postgresql/connect-go
+
 import (
 	//"encoding/hex"
 	"bufio"
@@ -150,7 +152,6 @@ func main() {
 
 	//Keep calling this function
 	data := make([]byte, 65535)
-	var outstring string
 	for {
 		_, remoteAddr, err := udpConn.ReadFromUDP(data)
 		checkError(err)
@@ -159,6 +160,7 @@ func main() {
 		remAddr = remoteAddr.String()
 
 		// прием данных
+		var outstring string
 		outmess, err := bufio.NewReader(udpConn).ReadString('\n')
 		if err == nil {
 			// разделаем строку на фрагменты по разделителю
@@ -200,4 +202,4 @@ func main() {
 	}
 }
 
-///////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
