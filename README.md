@@ -23,7 +23,7 @@ Usage of ./AudioCodesCDR:
 - и меню "SIP Definitions" раздел "Advanced Parameters" - "CDR Report Level" = "End Call"
 
 
-скомпилированно 4.15.0-151-generic #157-Ubuntu SMP Fri Jul 9 23:07:57 UTC 2021 x86\_64 x86\_64 x86\_64 GNU/Linux
+Binare file "AudioCodesCDR" скомпилированно 4.15.0-151-generic #157-Ubuntu SMP Fri Jul 9 23:07:57 UTC 2021 x86\_64 x86\_64 x86\_64 GNU/Linux
 - Distributor ID: LinuxMint
 - Description:    Linux Mint 19 Tara
 - Codename:       tara
