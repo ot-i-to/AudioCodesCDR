@@ -1,7 +1,5 @@
 package main
 
-// https://docs.microsoft.com/ru-ru/azure/postgresql/connect-go
-
 import (
 	//"encoding/hex"
 	"bufio"
