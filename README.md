@@ -7,7 +7,7 @@ $ ./AudioCodesCDR -h
 Usage of ./AudioCodesCDR:
 
 * --dbase, -b, string ..... PostgreSQL database (default "cdrs")
-* --debug, -d, string ..... Debug level ... 1 - log file only, 2 - console only, 3 - both, 0 - disabled (default) (default "0")
+* --debug, -d, string ..... Debug level ... 1 - log file only, 2 - console only, 3 - both, 0 - disabled (default)
 * --dpasswd, -p, string ... PostgreSQL database password (default "password")
 * --dserver, -s, string ... PostgreSQL database server  (default "127.0.0.1")
 * --dtable, -t, string .... PostgreSQL database (default "cdrs")
