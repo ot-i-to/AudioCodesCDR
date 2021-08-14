@@ -160,7 +160,7 @@ func main() {
 		remAddr = remoteAddr.String()
 
 		// прием данных
-		var outstring string
+		var outstring string = ""
 		outmess, err := bufio.NewReader(udpConn).ReadString('\n')
 		if err == nil {
 			// разделаем строку на фрагменты по разделителю
@@ -170,7 +170,7 @@ func main() {
 					if len(words[34]) < 4 {
 						words[34] = words[33]
 					}
-					var tobd string
+					var tobd string = ""
 					for idx := 2; idx < len(words); idx++ {
 						words[idx] = strings.ReplaceAll(standardizeSpaces(words[idx]), " (", "_")
 						words[idx] = strings.ReplaceAll(standardizeSpaces(words[idx]), ")", "")
