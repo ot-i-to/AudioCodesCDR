@@ -23,6 +23,6 @@ Usage of ./AudioCodesCDR:
 - на AudioCodes должено в меню "System" включен "Syslog" в разделе "Syslog Settings"
 - и меню "SIP Definitions" раздел "Advanced Parameters" - "CDR Report Level" = "End Call"
 
-Двоичный файл "AudioCodesCDR" скомпилированно 4.15.0-151-generic #157-Ubuntu SMP Fri Jul 9 23:07:57 UTC 2021 x86\_64 x86\_64 x86\_64 GNU/Linux Mint 19 Tara
+Двоичный файл "AudioCodesCDR" скомпилирован 4.15.0-151-generic #157-Ubuntu SMP Fri Jul 9 23:07:57 UTC 2021 x86\_64 x86\_64 x86\_64 GNU/Linux Mint 19 Tara
 
 
