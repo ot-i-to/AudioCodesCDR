@@ -156,11 +156,11 @@ func main() {
 		_, remoteAddr, err := udpConn.ReadFromUDP(data)
 		checkError(err)
 
-		var remAddr string
+		var remAddr string = ""
 		remAddr = remoteAddr.String()
 
 		// прием данных
-		var outstring string = ""
+		//var outstring string = ""
 		outmess, err := bufio.NewReader(udpConn).ReadString('\n')
 		if err == nil {
 			// разделаем строку на фрагменты по разделителю
@@ -176,29 +176,29 @@ func main() {
 						words[idx] = strings.ReplaceAll(standardizeSpaces(words[idx]), ")", "")
 						tobd = tobd + "', '" + standardizeSpaces(words[idx])
 					}
-					outstring = "'" + standardizeSpaces(remAddr) + tobd + "', '" + standardizeSpaces(words[1]) + "'"
+					outstring := "'" + standardizeSpaces(remAddr) + tobd + "', '" + standardizeSpaces(words[1]) + "'"
+
+					// Insert some data into table.
+					sql_statement := "INSERT INTO ac_cdr (inhost, cid, sessionid, trunk, bchan, conid, tg, eptyp, orig, sourceip, destip, srcton, srcnpi, srcphonenum, srcnumbeforemap, dstton, dstnpi, dstphonenum, dstnumbeforemap, durat, coder, intrv, rtpip, port, trmsd, trmreason, fax, inpackets, outpackets, packloss, remotepackloss, sipcallid, setuptime, connecttime, releasetime, rtpdelay, rtpjitter, rtpssrc, remotertpssrc, redirectreason, ton, npi, redirectphonnum, meteringpulses, srchost, srchostbeforemap, dsthost, dsthostbeforemap, ipg_description, localrtpip, localrtpport, amount, mult, trmreasoncategory, redirectnumbeforemap, srdid_name, sipinterfaceid, proxysetid, ipprofileid_name, mediarealmid_name, sigtransporttype, txrtpipdiffserv, txsigipdiffserv, localrfactor, remoterfactor, localmoscq, remotemoscq, sigsourceport, sigdestport, mediatype, gwreporttype) VALUES (" + outstring + ");"
+					if DEBUG == "1" {
+						log.Printf("SQL --> %s\n", sql_statement)
+					}
+					if DEBUG == "2" {
+						fmt.Printf("SQL --> %s\n", sql_statement)
+					}
+					if DEBUG == "3" {
+						log.Printf("SQL --> %s\n", sql_statement)
+						fmt.Printf("SQL --> %s\n", sql_statement)
+					}
+					_, err = db.Exec(sql_statement)
+					//_, err = db.Exec(sql_statement, out)
+					if err != nil {
+						log.Printf("ERROR SQL --> %s\n", sql_statement)
+					}
+					checkError(err)
 				}
 			}
 		}
-
-		// Insert some data into table.
-		sql_statement := "INSERT INTO ac_cdr (inhost, cid, sessionid, trunk, bchan, conid, tg, eptyp, orig, sourceip, destip, srcton, srcnpi, srcphonenum, srcnumbeforemap, dstton, dstnpi, dstphonenum, dstnumbeforemap, durat, coder, intrv, rtpip, port, trmsd, trmreason, fax, inpackets, outpackets, packloss, remotepackloss, sipcallid, setuptime, connecttime, releasetime, rtpdelay, rtpjitter, rtpssrc, remotertpssrc, redirectreason, ton, npi, redirectphonnum, meteringpulses, srchost, srchostbeforemap, dsthost, dsthostbeforemap, ipg_description, localrtpip, localrtpport, amount, mult, trmreasoncategory, redirectnumbeforemap, srdid_name, sipinterfaceid, proxysetid, ipprofileid_name, mediarealmid_name, sigtransporttype, txrtpipdiffserv, txsigipdiffserv, localrfactor, remoterfactor, localmoscq, remotemoscq, sigsourceport, sigdestport, mediatype, gwreporttype) VALUES (" + outstring + ");"
-		if DEBUG == "1" {
-			log.Printf("SQL --> %s\n", sql_statement)
-		}
-		if DEBUG == "2" {
-			fmt.Printf("SQL --> %s\n", sql_statement)
-		}
-		if DEBUG == "3" {
-			log.Printf("SQL --> %s\n", sql_statement)
-			fmt.Printf("SQL --> %s\n", sql_statement)
-		}
-		_, err = db.Exec(sql_statement)
-		//_, err = db.Exec(sql_statement, out)
-		if err != nil {
-			log.Printf("ERROR SQL --> %s\n", sql_statement)
-		}
-		checkError(err)
 	}
 }
 
