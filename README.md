@@ -18,7 +18,7 @@ Usage of ./AudioCodesCDR:
 
 Таблица в базеданных создается автоматически, но надо предварительно предоставить соответствующие права пользователю.
 
-проверено с AudioCodes Mediant-3000 PSTN STM1\SONET Interface, firmware version 6.40A, protocol type SIP
+Проверено с AudioCodes Mediant-3000 PSTN STM1\SONET Interface, firmware version 6.40A, protocol type SIP
 
 - на AudioCodes должено в меню "System" включен "Syslog" в разделе "Syslog Settings"
 - и меню "SIP Definitions" раздел "Advanced Parameters" - "CDR Report Level" = "End Call"
