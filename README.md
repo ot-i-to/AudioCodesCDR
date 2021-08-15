@@ -16,6 +16,7 @@ Usage of ./AudioCodesCDR:
 * --logfile, -l, string ... Full path and name of the log file (default "/var/log/AudioCodesCDR.log")
 * --netport, -n, string ... Network UDP port (default ":4444")
 
+Таблица в базеданных создается автоматически, но надо предварительно предоставить соответствующие права пользователю.
 
 проверено с AudioCodes Mediant-3000 PSTN STM1\SONET Interface, firmware version 6.40A, protocol type SIP
 
